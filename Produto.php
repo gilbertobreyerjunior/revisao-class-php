@@ -3,8 +3,8 @@
 class Produto{
 
 
-public $nome = "Relógio";
-public $descricao = "Rolex";
+public $nome;
+public $descricao;
 public $preco;
 public $qtd;
 public $taxa;
@@ -12,12 +12,12 @@ public $frete;
 
 
 
-public function Calculafrete($preco, $qtd, $taxa){
+public function Calculafrete($preco, $taxa, $qtd){
 
 
 
 
-	$total = $preco + $qtd + $taxa;
+	$total = ($preco + $taxa) * $qtd;
 
  echo " valor total é: ". $total;
 
@@ -25,7 +25,12 @@ public function Calculafrete($preco, $qtd, $taxa){
 
 
 
+public function venda(){
 
+
+
+	return "O cliente: " . $this->nome . " Comprou: " . $this->descricao;
+}
 
 
 }
@@ -33,9 +38,14 @@ public function Calculafrete($preco, $qtd, $taxa){
 
 $pdt = new Produto();
 
-echo "Produto" . $nome;
+$pdt->nome = "Osvaldo";
 
-echo $pdt->Calculafrete(1000,1,1.5);
+$pdt->descricao = " Rolex";
+
+echo $pdt->venda();
+
+echo $pdt->Calculafrete(1000,1.5, 2);
+
 
 
 
